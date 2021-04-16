@@ -29,7 +29,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BridgeAppDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A14F2412629C6AA006FEB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A3B767E2629CB8500F2691B /* FPVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPVViewController.swift; sourceTree = "<group>"; };
 		A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BridgeAppDemo.entitlements; sourceTree = "<group>"; };
@@ -94,7 +93,6 @@
 				A4F47F261C086E5C007A0E04 /* Assets.xcassets */,
 				A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */,
 				A4F47F2B1C086E5C007A0E04 /* Info.plist */,
-				3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */,
 				3A3B767E2629CB8500F2691B /* FPVViewController.swift */,
 			);
 			path = BridgeAppDemo;
@@ -306,6 +304,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -343,6 +342,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -367,7 +367,6 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dji.FPVDemoSwiftRIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BridgeAppDemo/BridgeAppDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
@@ -393,7 +392,6 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dji.FPVDemoSwiftRIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BridgeAppDemo/BridgeAppDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
