@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4F47F1C1C086E5C007A0E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F47F1B1C086E5C007A0E04 /* main.m */; };
-		A4F47F1F1C086E5C007A0E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F47F1E1C086E5C007A0E04 /* AppDelegate.m */; };
+		3A14F2422629C6AA006FEB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F2412629C6AA006FEB7F /* AppDelegate.swift */; };
 		A4F47F251C086E5C007A0E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F231C086E5C007A0E04 /* Main.storyboard */; };
 		A4F47F271C086E5C007A0E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F261C086E5C007A0E04 /* Assets.xcassets */; };
 		A4F47F2A1C086E5C007A0E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */; };
@@ -30,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BridgeAppDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A14F2412629C6AA006FEB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BridgeAppDemo.entitlements; sourceTree = "<group>"; };
 		A4E8222E1C3D0EBC0095BA20 /* avcodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avcodec.h; sourceTree = "<group>"; };
 		A4E8222F1C3D0EBC0095BA20 /* avfft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = avfft.h; sourceTree = "<group>"; };
@@ -133,9 +134,6 @@
 		A4E8229A1C3D0EBC0095BA20 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		A4E8229B1C3D0EBC0095BA20 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		A4F47F171C086E5C007A0E04 /* BridgeAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BridgeAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4F47F1B1C086E5C007A0E04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A4F47F1D1C086E5C007A0E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A4F47F1E1C086E5C007A0E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A4F47F241C086E5C007A0E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4F47F261C086E5C007A0E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4F47F291C086E5C007A0E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -396,9 +394,8 @@
 		A4F47F191C086E5C007A0E04 /* BridgeAppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3A14F2412629C6AA006FEB7F /* AppDelegate.swift */,
 				A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */,
-				A4F47F1D1C086E5C007A0E04 /* AppDelegate.h */,
-				A4F47F1E1C086E5C007A0E04 /* AppDelegate.m */,
 				A4F47F401C086EDF007A0E04 /* DJICameraViewController.h */,
 				A4F47F411C086EDF007A0E04 /* DJICameraViewController.m */,
 				A4F47F231C086E5C007A0E04 /* Main.storyboard */,
@@ -406,17 +403,9 @@
 				A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */,
 				A4F47F2B1C086E5C007A0E04 /* Info.plist */,
 				A4F47F451C086FB2007A0E04 /* ThirdParty */,
-				A4F47F1A1C086E5C007A0E04 /* Supporting Files */,
+				3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */,
 			);
 			path = BridgeAppDemo;
-			sourceTree = "<group>";
-		};
-		A4F47F1A1C086E5C007A0E04 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A4F47F1B1C086E5C007A0E04 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A4F47F331C086E5C007A0E04 /* BridgeAppDemoTests */ = {
@@ -473,7 +462,6 @@
 				A4F47F151C086E5C007A0E04 /* Resources */,
 				A4F47FC41C087112007A0E04 /* Embed Frameworks */,
 				FC3CA2154A5440710746C3A8 /* [CP] Embed Pods Frameworks */,
-				9E7AFD62923A2A531D849A29 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -495,7 +483,8 @@
 				TargetAttributes = {
 					A4F47F161C086E5C007A0E04 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 7UL3LRJL93;
+						DevelopmentTeam = R725LZS4G8;
+						LastSwiftMigration = 1240;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 1;
@@ -543,28 +532,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BridgeAppDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9E7AFD62923A2A531D849A29 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC3CA2154A5440710746C3A8 /* [CP] Embed Pods Frameworks */ = {
@@ -573,13 +550,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo-frameworks.sh",
+				"${PODS_ROOT}/DJI-SDK-iOS/iOS_Mobile_SDK/DJISDK.framework",
+				"${PODS_ROOT}/DJIWidget/FFmpeg/FFmpeg.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DJISDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FFmpeg.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -589,8 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4F47F1F1C086E5C007A0E04 /* AppDelegate.m in Sources */,
-				A4F47F1C1C086E5C007A0E04 /* main.m in Sources */,
+				3A14F2422629C6AA006FEB7F /* AppDelegate.swift in Sources */,
 				A4F47F421C086EDF007A0E04 /* DJICameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -704,8 +685,9 @@
 			baseConfigurationReference = CC488E0687F24BD135281767 /* Pods-BridgeAppDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BridgeAppDemo/BridgeAppDemo.entitlements;
-				DEVELOPMENT_TEAM = 7UL3LRJL93;
+				DEVELOPMENT_TEAM = R725LZS4G8;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -715,8 +697,11 @@
 				INFOPLIST_FILE = BridgeAppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dji.BridgeAppDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dji.FPVDemoSwiftRIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BridgeAppDemo/BridgeAppDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Debug;
@@ -726,8 +711,9 @@
 			baseConfigurationReference = F259797BAD9DD169134827D3 /* Pods-BridgeAppDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BridgeAppDemo/BridgeAppDemo.entitlements;
-				DEVELOPMENT_TEAM = 7UL3LRJL93;
+				DEVELOPMENT_TEAM = R725LZS4G8;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -737,8 +723,10 @@
 				INFOPLIST_FILE = BridgeAppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dji.BridgeAppDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dji.FPVDemoSwiftRIIS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BridgeAppDemo/BridgeAppDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Release;
