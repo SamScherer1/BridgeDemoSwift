@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3A14F2422629C6AA006FEB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F2412629C6AA006FEB7F /* AppDelegate.swift */; };
+		3A3B767F2629CB8500F2691B /* FPVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B767E2629CB8500F2691B /* FPVViewController.swift */; };
 		A4F47F251C086E5C007A0E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F231C086E5C007A0E04 /* Main.storyboard */; };
 		A4F47F271C086E5C007A0E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F261C086E5C007A0E04 /* Assets.xcassets */; };
 		A4F47F2A1C086E5C007A0E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */; };
-		A4F47F421C086EDF007A0E04 /* DJICameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F47F411C086EDF007A0E04 /* DJICameraViewController.m */; };
 		F93FB4F27B353CBE49C5F7C7 /* libPods-BridgeAppDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCB0D65613A0B536708D254 /* libPods-BridgeAppDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BridgeAppDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A14F2412629C6AA006FEB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A3B767E2629CB8500F2691B /* FPVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPVViewController.swift; sourceTree = "<group>"; };
 		A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BridgeAppDemo.entitlements; sourceTree = "<group>"; };
 		A4F47F171C086E5C007A0E04 /* BridgeAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BridgeAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F47F241C086E5C007A0E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,8 +40,6 @@
 		A4F47F2B1C086E5C007A0E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F47F341C086E5C007A0E04 /* BridgeAppDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeAppDemoTests.m; sourceTree = "<group>"; };
 		A4F47F361C086E5C007A0E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4F47F401C086EDF007A0E04 /* DJICameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJICameraViewController.h; sourceTree = "<group>"; };
-		A4F47F411C086EDF007A0E04 /* DJICameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJICameraViewController.m; sourceTree = "<group>"; };
 		CC488E0687F24BD135281767 /* Pods-BridgeAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DDCB0D65613A0B536708D254 /* libPods-BridgeAppDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BridgeAppDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F259797BAD9DD169134827D3 /* Pods-BridgeAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,13 +90,12 @@
 			children = (
 				3A14F2412629C6AA006FEB7F /* AppDelegate.swift */,
 				A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */,
-				A4F47F401C086EDF007A0E04 /* DJICameraViewController.h */,
-				A4F47F411C086EDF007A0E04 /* DJICameraViewController.m */,
 				A4F47F231C086E5C007A0E04 /* Main.storyboard */,
 				A4F47F261C086E5C007A0E04 /* Assets.xcassets */,
 				A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */,
 				A4F47F2B1C086E5C007A0E04 /* Info.plist */,
 				3A14F2402629C6A9006FEB7F /* BridgeAppDemo-Bridging-Header.h */,
+				3A3B767E2629CB8500F2691B /* FPVViewController.swift */,
 			);
 			path = BridgeAppDemo;
 			sourceTree = "<group>";
@@ -242,7 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A14F2422629C6AA006FEB7F /* AppDelegate.swift in Sources */,
-				A4F47F421C086EDF007A0E04 /* DJICameraViewController.m in Sources */,
+				3A3B767F2629CB8500F2691B /* FPVViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

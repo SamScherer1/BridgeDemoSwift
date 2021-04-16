@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Camera View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DJICameraViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FPVViewController" customModule="BridgeAppDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,8 +26,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIt-71-wG3">
                                 <rect key="frame" x="0.0" y="263" width="568" height="57"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="teR-U4-CGZ">
-                                        <rect key="frame" x="325" y="15" width="189" height="29"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="teR-U4-CGZ" userLabel="Work Mode Segment Control">
+                                        <rect key="frame" x="325" y="15" width="189" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="yzT-xe-PkJ"/>
                                         </constraints>
@@ -38,10 +36,10 @@
                                             <segment title="RecordMode"/>
                                         </segments>
                                         <connections>
-                                            <action selector="changeWorkModeAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="N2T-ML-N7N"/>
+                                            <action selector="workModeSegmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="oJq-iF-CQT"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQy-a4-Olk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQy-a4-Olk">
                                         <rect key="frame" x="166" y="8" width="99" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="MNL-Q2-Ogg"/>
@@ -53,7 +51,7 @@
                                             <action selector="recordAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OpH-bb-W22"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-mf-WA4">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-mf-WA4">
                                         <rect key="frame" x="46" y="8" width="93" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="93" id="S5d-nm-eY0"/>
@@ -131,10 +129,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="changeWorkModeSegmentControl" destination="teR-U4-CGZ" id="Qfb-0U-ToF"/>
-                        <outlet property="currentRecordTimeLabel" destination="TKe-gA-45R" id="TPZ-e6-qSz"/>
-                        <outlet property="fpvPreviewView" destination="KMm-p3-aSU" id="K6V-28-Pbf"/>
-                        <outlet property="recordBtn" destination="RQy-a4-Olk" id="bTZ-iD-Gc3"/>
+                        <outlet property="captureButton" destination="hcq-mf-WA4" id="HRA-Fi-K0M"/>
+                        <outlet property="fpvView" destination="KMm-p3-aSU" id="oJP-cL-hSz"/>
+                        <outlet property="recordButton" destination="RQy-a4-Olk" id="l6h-nI-gVf"/>
+                        <outlet property="recordTimeLabel" destination="TKe-gA-45R" id="nNH-gW-JBi"/>
+                        <outlet property="workModeSegmentControl" destination="teR-U4-CGZ" id="3gf-wh-0UR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
