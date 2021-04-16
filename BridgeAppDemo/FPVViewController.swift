@@ -128,7 +128,6 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         if let _ = error {
             message = "Register app failed! Please enter your app key and check the network."
         } else {
-            //DJISDKManager.startConnectionToProduct()
             DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.128.169")
         }
         
