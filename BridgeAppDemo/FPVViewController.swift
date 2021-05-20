@@ -12,45 +12,61 @@ import DJIWidget
 
 class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDelegate, DJIVideoFeedListener {
     
-    var isRecording : Bool!
-    
     @IBOutlet var recordTimeLabel: UILabel!
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var recordButton: UIButton!
-    @IBOutlet var workModeSegmentControl: UISegmentedControl!
+    @IBOutlet var workModeControl: UISegmentedControl!
     @IBOutlet var fpvView: UIView!
+    
+    var isRecording = false
+    
+    fileprivate let enableDebugMode = true
+    fileprivate let bridgeIP = "192.168.128.130"
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DJIVideoPreviewer.instance().setView(self.fpvView)
+        DJISDKManager.registerApp(with: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        DJIVideoPreviewer.instance().setView(nil)
+        DJISDKManager.videoFeeder()?.primaryVideoFeed.remove(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DJISDKManager.registerApp(with: self)
-        recordTimeLabel.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    
-        if let camera = fetchCamera(), let delegate = camera.delegate, delegate.isEqual(self) {
-            camera.delegate = nil
-        }
-        
-        self.resetVideoPreview()
+        self.recordTimeLabel.isHidden = true
     }
     
-    func setupVideoPreviewer() {
-        DJIVideoPreviewer.instance().setView(self.fpvView)
-        let product = DJISDKManager.product()
+    func showAlertViewWithTitle(title: String, withMessage message: String) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction.init(title:"OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func format(seconds: UInt) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(seconds))
         
-        //Use "SecondaryVideoFeed" if the DJI Product is A3, N3, Matrice 600, or Matrice 600 Pro, otherwise, use "primaryVideoFeed".
-        if ((product?.model == DJIAircraftModelNameA3)
-            || (product?.model == DJIAircraftModelNameN3)
-            || (product?.model == DJIAircraftModelNameMatrice600)
-            || (product?.model == DJIAircraftModelNameMatrice600Pro)) {
-            DJISDKManager.videoFeeder()?.secondaryVideoFeed.add(self, with: nil)
-        } else {
-            DJISDKManager.videoFeeder()?.primaryVideoFeed.add(self, with: nil)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm:ss"
+        return(dateFormatter.string(from: date))
+    }
+    
+    func fetchCamera() -> DJICamera? {
+        guard let product = DJISDKManager.product() else {
+            return nil
         }
-        DJIVideoPreviewer.instance().start()
+        if let aircraft = product as? DJIAircraft {
+            return aircraft.camera
+        }
+        if let handheld = product as? DJIHandheld {
+            return handheld.camera
+        }
+        return nil
     }
     
     func resetVideoPreview() {
@@ -67,44 +83,12 @@ class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDeleg
             DJISDKManager.videoFeeder()?.primaryVideoFeed.remove(self)
         }
     }
-    
-    func fetchCamera() -> DJICamera? {
-        guard let product = DJISDKManager.product() else {
-            return nil
-        }
-        if let aircraft = product as? DJIAircraft {
-            return aircraft.camera
-        }
-        if let handheld = product as? DJIHandheld {
-            return handheld.camera
-        }
-        return nil
-    }
-    
-    func formatSeconds(seconds: UInt) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(seconds))
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm:ss"
-        return(dateFormatter.string(from: date))
-    }
-    
-    func showAlertViewWithTitle(title: String, withMessage message: String) {
-        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction.init(title:"OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+
     // MARK: DJISDKManagerDelegate Methods
     func productConnected(_ product: DJIBaseProduct?) {
-        
-        print("Product Connected")
-        
         if let camera = fetchCamera() {
             camera.delegate = self
         }
-        self.setupVideoPreviewer()
         
         //If this demo is used in China, it's required to login to your DJI account to activate the application. Also you need to use DJI Go app to bind the aircraft to your DJI account. For more details, please check this demo's tutorial.
         DJISDKManager.userAccountManager().logIntoDJIUserAccount(withAuthorizationRequired: false) { (state, error) in
@@ -114,24 +98,29 @@ class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDeleg
         }
     }
     
-    func productDisconnected() {
-        print("Product Disconnected")
-
-        if let camera = fetchCamera(), let delegate = camera.delegate, delegate.isEqual(self) {
-            camera.delegate = nil
-        }
-        self.resetVideoPreview()
-    }
-    
     func appRegisteredWithError(_ error: Error?) {
-        var message = "Register App Successed!"
+        var message = "App registration succeeded!"
         if let _ = error {
-            message = "Register app failed! Please enter your app key and check the network."
+            message = "App registration failed! Please enter your app key and check the network."
         } else {
-            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.128.169")
+            if enableDebugMode {
+                DJISDKManager.enableBridgeMode(withBridgeAppIP: bridgeIP)
+            } else {
+                DJISDKManager.startConnectionToProduct()
+            }
+            DJISDKManager.videoFeeder()?.primaryVideoFeed.add(self, with: nil)
+            DJIVideoPreviewer.instance().start()
         }
         
         self.showAlertViewWithTitle(title:"Register App", withMessage: message)
+    }
+    
+    // MARK: DJIVideoFeedListener Method
+    func videoFeed(_ videoFeed: DJIVideoFeed, didUpdateVideoData rawData: Data) {
+        let videoData = rawData as NSData
+        let videoBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: videoData.length)
+        videoData.getBytes(videoBuffer, length: videoData.length)
+        DJIVideoPreviewer.instance().push(videoBuffer, length: Int32(videoData.length))
     }
     
     func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
@@ -143,9 +132,9 @@ class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDeleg
         self.isRecording = cameraState.isRecording
         self.recordTimeLabel.isHidden = !self.isRecording
         
-        self.recordTimeLabel.text = formatSeconds(seconds: cameraState.currentVideoRecordingTimeInSeconds)
+        self.recordTimeLabel.text = format(seconds: cameraState.currentVideoRecordingTimeInSeconds)
         
-        if (self.isRecording == true) {
+        if self.isRecording == true {
             self.recordButton.setTitle("Stop Record", for: .normal)
         } else {
             self.recordButton.setTitle("Start Record", for: .normal)
@@ -153,18 +142,10 @@ class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDeleg
         
         //Update UISegmented Control's State
         if (cameraState.mode == DJICameraMode.shootPhoto) {
-            self.workModeSegmentControl.selectedSegmentIndex = 0
+            self.workModeControl.selectedSegmentIndex = 0
         } else {
-            self.workModeSegmentControl.selectedSegmentIndex = 1
+            self.workModeControl.selectedSegmentIndex = 1
         }
-    }
-    
-    // MARK: DJIVideoFeedListener Method
-    func videoFeed(_ videoFeed: DJIVideoFeed, didUpdateVideoData rawData: Data) {
-        let videoData = rawData as NSData
-        let videoBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: videoData.length)
-        videoData.getBytes(videoBuffer, length: videoData.length)
-        DJIVideoPreviewer.instance().push(videoBuffer, length: Int32(videoData.length))
     }
     
     // MARK: IBAction Methods

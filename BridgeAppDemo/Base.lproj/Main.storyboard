@@ -133,7 +133,7 @@
                         <outlet property="fpvView" destination="KMm-p3-aSU" id="oJP-cL-hSz"/>
                         <outlet property="recordButton" destination="RQy-a4-Olk" id="l6h-nI-gVf"/>
                         <outlet property="recordTimeLabel" destination="TKe-gA-45R" id="nNH-gW-JBi"/>
-                        <outlet property="workModeSegmentControl" destination="teR-U4-CGZ" id="3gf-wh-0UR"/>
+                        <outlet property="workModeControl" destination="teR-U4-CGZ" id="3gf-wh-0UR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
