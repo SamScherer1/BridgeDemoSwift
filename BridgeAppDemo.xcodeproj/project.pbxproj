@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A14F2422629C6AA006FEB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A14F2412629C6AA006FEB7F /* AppDelegate.swift */; };
 		3A3B767F2629CB8500F2691B /* FPVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3B767E2629CB8500F2691B /* FPVViewController.swift */; };
-		93DE64AA6C7E95C1A022C5D6 /* Pods_BridgeAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4108A68AFC9B464463D9470 /* Pods_BridgeAppDemo.framework */; };
+		7A95CCF143314B3B0B8CC987 /* Pods_BridgeAppDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94100EBF905A503242559E6 /* Pods_BridgeAppDemo.framework */; };
 		A4F47F251C086E5C007A0E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F231C086E5C007A0E04 /* Main.storyboard */; };
 		A4F47F271C086E5C007A0E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F261C086E5C007A0E04 /* Assets.xcassets */; };
 		A4F47F2A1C086E5C007A0E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F47F281C086E5C007A0E04 /* LaunchScreen.storyboard */; };
@@ -29,10 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		292B9F85ACD72964C7F33BF2 /* Pods-BridgeAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.release.xcconfig"; path = "Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.release.xcconfig"; sourceTree = "<group>"; };
 		3A14F2412629C6AA006FEB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A3B767E2629CB8500F2691B /* FPVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPVViewController.swift; sourceTree = "<group>"; };
-		7B0D3CFC7ECC54FF0B3147C7 /* Pods-BridgeAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.debug.xcconfig"; path = "Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		996B9196D5DADBD32F7356AA /* Pods-BridgeAppDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.debug.xcconfig"; path = "Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A3A9D6F537190661BC253C57 /* Pods-BridgeAppDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BridgeAppDemo.release.xcconfig"; path = "Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A41255921DCB0CE7002DF91B /* BridgeAppDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BridgeAppDemo.entitlements; sourceTree = "<group>"; };
 		A4F47F171C086E5C007A0E04 /* BridgeAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BridgeAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F47F241C086E5C007A0E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		A4F47F2B1C086E5C007A0E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F47F341C086E5C007A0E04 /* BridgeAppDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BridgeAppDemoTests.m; sourceTree = "<group>"; };
 		A4F47F361C086E5C007A0E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4108A68AFC9B464463D9470 /* Pods_BridgeAppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BridgeAppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F94100EBF905A503242559E6 /* Pods_BridgeAppDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BridgeAppDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +49,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DE64AA6C7E95C1A022C5D6 /* Pods_BridgeAppDemo.framework in Frameworks */,
+				7A95CCF143314B3B0B8CC987 /* Pods_BridgeAppDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8502C71C4D22D4E83AFAB0AF /* Frameworks */ = {
+		4892AD1BB64E64604CD86BDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4108A68AFC9B464463D9470 /* Pods_BridgeAppDemo.framework */,
+				F94100EBF905A503242559E6 /* Pods_BridgeAppDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -71,7 +71,7 @@
 				A4F47F331C086E5C007A0E04 /* BridgeAppDemoTests */,
 				A4F47F181C086E5C007A0E04 /* Products */,
 				F92C003CA8FC2F19856E6C22 /* Pods */,
-				8502C71C4D22D4E83AFAB0AF /* Frameworks */,
+				4892AD1BB64E64604CD86BDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,8 +109,8 @@
 		F92C003CA8FC2F19856E6C22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7B0D3CFC7ECC54FF0B3147C7 /* Pods-BridgeAppDemo.debug.xcconfig */,
-				292B9F85ACD72964C7F33BF2 /* Pods-BridgeAppDemo.release.xcconfig */,
+				996B9196D5DADBD32F7356AA /* Pods-BridgeAppDemo.debug.xcconfig */,
+				A3A9D6F537190661BC253C57 /* Pods-BridgeAppDemo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -122,12 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4F47F391C086E5C007A0E04 /* Build configuration list for PBXNativeTarget "BridgeAppDemo" */;
 			buildPhases = (
-				9BE7740242298D2A6835DB9C /* [CP] Check Pods Manifest.lock */,
+				67EF394EB92CC21594D4FAB1 /* [CP] Check Pods Manifest.lock */,
 				A4F47F131C086E5C007A0E04 /* Sources */,
 				A4F47F141C086E5C007A0E04 /* Frameworks */,
 				A4F47F151C086E5C007A0E04 /* Resources */,
 				A4F47FC41C087112007A0E04 /* Embed Frameworks */,
-				8266A5CEB282ABC5BDD7DFCD /* [CP] Embed Pods Frameworks */,
+				4E6B3EC7CEF634C033068F33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +192,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8266A5CEB282ABC5BDD7DFCD /* [CP] Embed Pods Frameworks */ = {
+		4E6B3EC7CEF634C033068F33 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,7 +214,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BridgeAppDemo/Pods-BridgeAppDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9BE7740242298D2A6835DB9C /* [CP] Check Pods Manifest.lock */ = {
+		67EF394EB92CC21594D4FAB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,7 +356,7 @@
 		};
 		A4F47F3A1C086E5C007A0E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B0D3CFC7ECC54FF0B3147C7 /* Pods-BridgeAppDemo.debug.xcconfig */;
+			baseConfigurationReference = 996B9196D5DADBD32F7356AA /* Pods-BridgeAppDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -380,7 +380,7 @@
 		};
 		A4F47F3B1C086E5C007A0E04 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 292B9F85ACD72964C7F33BF2 /* Pods-BridgeAppDemo.release.xcconfig */;
+			baseConfigurationReference = A3A9D6F537190661BC253C57 /* Pods-BridgeAppDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

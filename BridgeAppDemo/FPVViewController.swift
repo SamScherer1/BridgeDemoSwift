@@ -10,7 +10,7 @@ import UIKit
 import DJISDK
 import DJIWidget
 
-class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerDelegate, DJICameraDelegate {
+class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDelegate, DJIVideoFeedListener {
     
     var isRecording : Bool!
     
@@ -39,7 +39,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     
     func setupVideoPreviewer() {
         DJIVideoPreviewer.instance().setView(self.fpvView)
-        let product = DJISDKManager.product();
+        let product = DJISDKManager.product()
         
         //Use "SecondaryVideoFeed" if the DJI Product is A3, N3, Matrice 600, or Matrice 600 Pro, otherwise, use "primaryVideoFeed".
         if ((product?.model == DJIAircraftModelNameA3)
@@ -128,7 +128,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         if let _ = error {
             message = "Register app failed! Please enter your app key and check the network."
         } else {
-            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.128.130")
+            DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.128.169")
         }
         
         self.showAlertViewWithTitle(title:"Register App", withMessage: message)
