@@ -72,11 +72,11 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         guard let product = DJISDKManager.product() else {
             return nil
         }
-        if product is DJIAircraft {
-            return (product as! DJIAircraft).camera
+        if let aircraft = product as? DJIAircraft {
+            return aircraft.camera
         }
-        if product is DJIHandheld {
-            return (product as! DJIHandheld).camera
+        if let handheld = product as? DJIHandheld {
+            return handheld.camera
         }
         return nil
     }
@@ -99,7 +99,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     // MARK: DJISDKManagerDelegate Methods
     func productConnected(_ product: DJIBaseProduct?) {
         
-        NSLog("Product Connected")
+        print("Product Connected")
         
         if let camera = fetchCamera() {
             camera.delegate = self
@@ -108,14 +108,14 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         
         //If this demo is used in China, it's required to login to your DJI account to activate the application. Also you need to use DJI Go app to bind the aircraft to your DJI account. For more details, please check this demo's tutorial.
         DJISDKManager.userAccountManager().logIntoDJIUserAccount(withAuthorizationRequired: false) { (state, error) in
-            if let _ = error {
-                NSLog("Login failed: %@" + String(describing: error))
+            if let error = error {
+                print("Login failed: \(error.localizedDescription)")
             }
         }
     }
     
     func productDisconnected() {
-        NSLog("Product Disconnected")
+        print("Product Disconnected")
 
         if let camera = fetchCamera(), let delegate = camera.delegate, delegate.isEqual(self) {
             camera.delegate = nil
@@ -128,6 +128,8 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
         if let _ = error {
             message = "Register app failed! Please enter your app key and check the network."
         } else {
+            //TODO: Use direct connection when finished...
+            //DJISDKManager.startConnectionToProduct()
             DJISDKManager.enableBridgeMode(withBridgeAppIP: "192.168.128.169")
         }
         
@@ -135,7 +137,7 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     }
     
     func didUpdateDatabaseDownloadProgress(_ progress: Progress) {
-        NSLog("Download database : \n%lld/%lld", progress.completedUnitCount, progress.totalUnitCount)
+        print("Download database : \n%lld/%lld", progress.completedUnitCount, progress.totalUnitCount)
     }
     
     // MARK: DJICameraDelegate Method
@@ -173,11 +175,11 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
             return
         }
         
-        camera.setMode(DJICameraMode.shootPhoto, withCompletion: {(error) in
+        camera.setMode(DJICameraMode.shootPhoto, withCompletion: {(error: Error?) in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
                 camera.startShootPhoto(completion: { (error) in
-                    if let _ = error {
-                        NSLog("Shoot Photo Error: " + String(describing: error))
+                    if let error = error {
+                        print("Shoot Photo Error: \(error.localizedDescription)")
                     }
                 })
             }
@@ -185,41 +187,37 @@ class FPVViewController: UIViewController,  DJIVideoFeedListener, DJISDKManagerD
     }
     
     @IBAction func recordAction(_ sender: UIButton) {
-        guard let camera = fetchCamera() else {
-            return
-        }
+        guard let camera = fetchCamera() else { return }
         
         if (self.isRecording) {
-            camera.stopRecordVideo(completion: { (error) in
-                if let _ = error {
-                    NSLog("Stop Record Video Error: " + String(describing: error))
+            camera.stopRecordVideo(completion: { (error: Error?) in
+                if let error = error {
+                    print("Stop Record Video Error: \(error.localizedDescription)")
                 }
             })
         } else {
-            camera.startRecordVideo(completion: { (error) in
-                if let _ = error {
-                    NSLog("Start Record Video Error: " + String(describing: error))
+            camera.startRecordVideo(completion: { (error: Error?) in
+                if let error = error {
+                    print("Start Record Video Error: \(error.localizedDescription)")
                 }
             })
         }
     }
     
     @IBAction func workModeSegmentChange(_ sender: UISegmentedControl) {
-        guard let camera = fetchCamera() else {
-            return
-        }
+        guard let camera = fetchCamera() else { return }
         
        if (sender.selectedSegmentIndex == 0) {
             camera.setMode(DJICameraMode.shootPhoto,  withCompletion: { (error) in
-                if let _ = error {
-                    NSLog("Set ShootPhoto Mode Error: " + String(describing: error))
+                if let error = error {
+                    print("Set ShootPhoto Mode Error: \(error.localizedDescription)")
                 }
             })
             
         } else if (sender.selectedSegmentIndex == 1) {
             camera.setMode(DJICameraMode.recordVideo,  withCompletion: { (error) in
-                if let _ = error {
-                    NSLog("Set RecordVideo Mode Error: " + String(describing: error))
+                if let error = error {
+                    print("Set RecordVideo Mode Error: \(error.localizedDescription)")
                 }
             })
         }
