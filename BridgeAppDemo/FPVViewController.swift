@@ -21,7 +21,7 @@ class FPVViewController: UIViewController, DJICameraDelegate, DJISDKManagerDeleg
     var isRecording = false
     
     fileprivate let enableDebugMode = true
-    fileprivate let bridgeIP = "192.168.128.130"
+    fileprivate let bridgeIP = "192.168.128.169"
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
