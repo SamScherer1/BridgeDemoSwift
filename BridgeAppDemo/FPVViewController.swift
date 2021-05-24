@@ -3,7 +3,7 @@
 //  BridgeAppDemo
 //
 //  Created by Samuel Scherer on 4/16/21.
-//  Copyright © 2021 DJI. All rights reserved.
+//  Copyright © 2021 RIIS. All rights reserved.
 //
 
 import UIKit
